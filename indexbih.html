@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lightup Studio — Dozvolite svojim snovima da zasjaju.</title>
+  <meta name="description" content="Lightup Studio helps ambitious brands shine — strategy, branding, video, photo, print, web, and social design." />
+  <meta name="author" content="Lightup Studio" />
+  <meta property="og:title" content="Lightup Studio — Brand to the stars" />
+  <meta property="og:description" content="Strategy-first creative studio. Branding, video, photo, print, web, marketing & social design." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:image" content="https://picsum.photos/seed/lightup-og/1200/630" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (no build needed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'] },
+          colors: {
+            brand: {
+              50: '#f5faff', 100: '#eaf3ff', 200: '#cfe4ff', 300: '#a8cdff', 400: '#7cb0ff', 500: '#4b8dff', 600: '#2b6dff', 700: '#1f55db', 800: '#1b45ad', 900: '#183c8a'
+            },
+            ink: '#0a0a0a',
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(75, 141, 255, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Subtle, Apple-like polish */
+    .backdrop-blur-apple { backdrop-filter: saturate(180%) blur(12px); }
+    .gradient-hero { background: radial-gradient(1200px 600px at 80% -10%, rgba(75,141,255,.25), transparent), radial-gradient(800px 400px at -20% 10%, rgba(255,255,255,.1), transparent), linear-gradient(180deg, #0b0b0b 0%, #0b0b0b 40%, #050505 100%); }
+    .shine { position: relative; }
+    .shine:after { content:""; position:absolute; inset:0; background: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.2) 45%, rgba(255,255,255,0) 60%); transform: translateX(-100%); animation: shine 6s infinite; }
+    @keyframes shine { 0%{transform:translateX(-120%)} 40%{transform:translateX(120%)} 100%{transform:translateX(120%)} }
+    .container-pad { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+  </style>
+</head>
+<body class="bg-ink text-white antialiased selection:bg-brand-400/40">
+  <!-- Header -->
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-ink/60 backdrop-blur-apple">
+    <div class="max-w-7xl mx-auto container-pad flex items-center justify-between py-4">
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-glow"></div>
+        <span class="font-extrabold tracking-tight text-lg">Lightup Studio</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#why" class="hover:text-brand-300">Zašto</a>
+        <a href="#how" class="hover:text-brand-300">Kako</a>
+        <a href="#what" class="hover:text-brand-300">Šta</a>
+        <a href="#work" class="hover:text-brand-300">Projekti</a>
+        <a href="#team" class="hover:text-brand-300">Tim</a>
+        <a href="#contact" class="hover:text-brand-300">Kontakt</a>
+      </nav>
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white text-ink font-semibold hover:shadow-glow transition">Započni projekt</a>
+      <button aria-label="Open menu" class="md:hidden inline-flex p-2" onclick="document.getElementById('mnav').classList.toggle('hidden')">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mnav" class="md:hidden hidden border-t border-white/10">
+      <div class="max-w-7xl mx-auto container-pad py-4 grid grid-cols-2 gap-4 text-sm">
+        <a href="#why" class="hover:text-brand-300" onclick="mclose()">Zašto</a>
+        <a href="#how" class="hover:text-brand-300" onclick="mclose()">Kako</a>
+        <a href="#what" class="hover:text-brand-300" onclick="mclose()">Šta</a>
+        <a href="#work" class="hover:text-brand-300" onclick="mclose()">Projekt</a>
+        <a href="#team" class="hover:text-brand-300" onclick="mclose()">Tim</a>
+        <a href="#contact" class="hover:text-brand-300" onclick="mclose()">Kontakt</a>
+        <a href="#contact" class="col-span-2 rounded-xl px-4 py-2 text-center bg-white text-ink font-semibold">Započni projekt</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero (Apple meets Chris Do) -->
+  <section id="home" class="gradient-hero pt-28 md:pt-36 pb-20">
+    <div class="max-w-7xl mx-auto container-pad">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight shine">
+            Mi <span class="text-brand-400">osvjetljavamo</span> brendove da budu vidljivi u svojoj dubini i širini onako kako treba.
+          </h1>
+          <p class="mt-6 text-lg md:text-xl text-white/80 max-w-xl">Kreativni studio usmjeren na strategiju koji spaja vrhunsku vještinu s profesionalnom jasnoćom. Pomažemo vam pronaći svoj <em>Zašto?</em>, izrazite to precizno i ​​prilagodite to svakoj tački vizije.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="rounded-2xl px-5 py-3 bg-white text-ink font-semibold hover:shadow-glow">Započni projket</a>
+            <a href="#work" class="rounded-2xl px-5 py-3 border border-white/20 hover:border-brand-400/60">Pogledajte naše radove</a>
+          </div>
+          <div class="mt-6 text-sm text-white/60">Meil: <a class="underline hover:text-brand-300" href="mailto:armin.trava@gmail.com">armin.trava@gmail.com</a> · Telefon: <a class="underline hover:text-brand-300" href="tel:+387644176423">+387 64 417 6423</a></div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <!-- Stock image from the web via picsum (feel free to replace with your project images) -->
+            <img src="https://picsum.photos/seed/lightup-hero/1600/1200" alt="Light beams over city" class="w-full h-full object-cover" />
+          </div>
+          <div class="absolute -bottom-6 -right-6 hidden md:block w-40 h-40 rounded-3xl bg-gradient-to-br from-brand-500/60 to-brand-700/60 blur-2xl opacity-70"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Golden Circle: WHY / HOW / WHAT -->
+  <section id="why" class="py-24 border-t border-white/10 bg-gradient-to-b from-ink to-black">
+    <div class="max-w-7xl mx-auto container-pad">
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Započnite sa <span class="text-brand-400">Zašto?</span>.</h2>
+      <p class="mt-4 text-white/70 max-w-2xl">Pomažemo vam da definirate svrhu u koju ljudi mogu vjerovati – i da sve dizajnirate oko nje.</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-3xl border border-white/10 p-6 hover:border-brand-400/50 transition">
+          <h3 class="text-xl font-bold">Zašto? — Svrha</h3>
+          <p class="mt-2 text-white/70">Razjasnite uvjerenje koje pokreće vaš brend. Pozicioniranje, vrijednosti, narativ i vodeća zvijezda koja vodi odluke.</p>
+        </div>
+        <div id="how" class="rounded-3xl border border-white/10 p-6 hover:border-brand-400/50 transition">
+          <h3 class="text-xl font-bold">Kako? — Metoda</h3>
+          <p class="mt-2 text-white/70">Strateški sprintovi, sistemi brendova i moderni proizvodni procesi - izgrađeni za brzinu bez žrtvovanja vještine.</p>
+        </div>
+        <div id="what" class="rounded-3xl border border-white/10 p-6 hover:border-brand-400/50 transition">
+          <h3 class="text-xl font-bold">Šta? — rezultat</h3>
+          <p class="mt-2 text-white/70">Identiteti brenda, video, fotografija, print, web stranice, marketing i društveni sadržaj koji imaju učinak.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto container-pad">
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Šta to mi radimo?</h2>
+      <p class="mt-3 text-white/70 max-w-2xl">Potpuna kreativna produkcija od strategije do lansiranja. Odaberite liniju ili idite od početka do kraja.</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service cards -->
+        <div class="rounded-3xl border border-white/10 p-6 hover:shadow-glow transition">
+          <h3 class="text-lg font-bold">Brending</h3>
+          <p class="mt-1 text-white/70">Ime, sistemi identiteta, smjernice, ton i priručniki brenda.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 p-6 hover:shadow-glow transition">
+          <h3 class="text-lg font-bold">Video produkcija</h3>
+          <p class="mt-1 text-white/70">Koncept, snimanje, montaža, boja, pokret i zvuk. Od reklama do dokumenata.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 p-6 hover:shadow-glow transition">
+          <h3 class="text-lg font-bold">Fotografija</h3>
+          <p class="mt-1 text-white/70">Izvještavanje o proizvodima, načinu života, portretima i događajima sa studijskom rasvjetom.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 p-6 hover:shadow-glow transition">
+          <h3 class="text-lg font-bold">Print dizajn</h3>
+          <p class="mt-1 text-white/70">Ambalaža, posteri, editorijal, OOH - spremno za štampu, savršeno do piksela.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 p-6 hover:shadow-glow transition">
+          <h3 class="text-lg font-bold">Web dizajn</h3>
+          <p class="mt-1 text-white/70">Marketinške stranice, odredišne ​​stranice, dizajnerski sistemi, low-code izrada.</p>
+        </div>
+        <div class="rounded-3xl border border-white/10 p-6 hover:shadow-glow transition">
+          <h3 class="text-lg font-bold">Marketing i društvene mreže</h3>
+          <p class="mt-1 text-white/70">Alati za kampanju, kalendari sadržaja, oglasi i predlošci koji se mogu skalirati.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Gallery (images from web) -->
+  <section id="work" class="py-24 border-t border-white/10">
+    <div class="max-w-7xl mx-auto container-pad">
+      <div class="flex items-end justify-between gap-6">
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Izabrani poslovi</h2>
+        <a href="#contact" class="hidden md:inline-block text-sm underline hover:text-brand-300">Treba li vam nešto ovako?</a>
+      </div>
+      <p class="mt-3 text-white/70">Slike rezerviranih mjesta preuzete s weba (picsum). Zamijenite svojim ili zalijepite Unsplash/Pexels linkove.</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <figure class="rounded-3xl overflow-hidden border border-white/10">
+          <img src="https://picsum.photos/seed/brand1/1200/900" alt="Brand identity mockup" class="w-full h-full object-cover"/>
+          <figcaption class="p-3 text-sm text-white/70">Sistem identiteta</figcaption>
+        </figure>
+        <figure class="rounded-3xl overflow-hidden border border-white/10">
+          <img src="https://picsum.photos/seed/brand2/1200/900" alt="Poster design" class="w-full h-full object-cover"/>
+          <figcaption class="p-3 text-sm text-white/70">Posteri</figcaption>
+        </figure>
+        <figure class="rounded-3xl overflow-hidden border border-white/10">
+          <img src="https://picsum.photos/seed/brand3/1200/900" alt="Website on devices" class="w-full h-full object-cover"/>
+          <figcaption class="p-3 text-sm text-white/70">Responzivni web</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video embeds (from the web) -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto container-pad">
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Istaknuti videozapisi</h2>
+      <p class="mt-3 text-white/70">Javni demo snimci ugrađeni s YouTubea. Zamijenite svojim linkovima.</p>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="aspect-video rounded-3xl overflow-hidden border border-white/10">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Showreel — sample" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-video rounded-3xl overflow-hidden border border-white/10">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/R6MlUcmOul8" title="Behind the scenes — sample" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-24 border-t border-white/10 bg-gradient-to-b from-black to-ink">
+    <div class="max-w-7xl mx-auto container-pad">
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Vaš tim</h2>
+      <p class="mt-3 text-white/70">Iskusni stručnjaci - jasne uloge, jedna vizija.</p>
+      <div class="mt-10 grid sm:grid-cols-2 gap-6">
+        <div class="rounded-3xl border border-white/10 p-6 flex items-center gap-5">
+          <img src="https://picsum.photos/seed/armin/240/240" alt="Armin Travančić" class="w-20 h-20 rounded-2xl object-cover"/>
+          <div>
+            <h3 class="font-bold">Armin Travančić</h3>
+            <p class="text-white/70">Brend dizajner</p>
+            <p class="text-sm text-white/60 mt-1">Strategija, identitet, sistemi.</p>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-white/10 p-6 flex items-center gap-5">
+          <img src="https://picsum.photos/seed/safet/240/240" alt="Safet Tokmić" class="w-20 h-20 rounded-2xl object-cover"/>
+          <div>
+            <h3 class="font-bold">Safet Tokmić</h3>
+            <p class="text-white/70">Stručnjak za video i zvuk</p>
+            <p class="text-sm text-white/60 mt-1">Režija, posting, miks, mastering.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24">
+    <div class="max-w-4xl mx-auto container-pad">
+      <div class="rounded-3xl border border-white/10 p-8 md:p-12 bg-white/5">
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Let's start your project</h2>
+        <p class="mt-3 text-white/70">Recite nam kakav ishod želite. Predložit ćemo vam najjednostavniji i najsigurniji put do njega.</p>
+
+        <form class="mt-8 grid gap-4" action="https://formspree.io/f/mayvlwyo" method="POST">
+          <!-- Tip: Replace action with your own Formspree endpoint or remove for pure mailto: fallback. -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="grid gap-1 text-sm">Ime
+              <input required name="name" class="mt-1 rounded-xl bg-white/10 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="Your name" />
+            </label>
+            <label class="grid gap-1 text-sm">Email
+              <input required type="email" name="email" class="mt-1 rounded-xl bg-white/10 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="you@company.com" />
+            </label>
+          </div>
+          <label class="grid gap-1 text-sm">Šta ti treba?
+            <textarea required name="message" rows="5" class="mt-1 rounded-xl bg-white/10 border border-white/10 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="Branding, web, video, photo, print, social…"></textarea>
+          </label>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="rounded-2xl px-6 py-3 bg-white text-ink font-semibold hover:shadow-glow" type="submit">Pošaljite upit</button>
+            <a class="underline hover:text-brand-300" href="mailto:armin.trava@gmail.com?subject=Project%20Inquiry%20—%20Lightup%20Studio">Ili nam se javite putem Email-a direktno</a>
+          </div>
+        </form>
+
+        <div class="mt-8 text-sm text-white/70">
+          <div>Mail: <a class="underline hover:text-brand-300" href="mailto:armin.trava@gmail.com">armin.trava@gmail.com</a></div>
+          <div>Telefon: <a class="underline hover:text-brand-300" href="tel:+387644176423">+387 64 417 6423</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto container-pad flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
+      <div>© <span id="year"></span> Lightup Studio — Sva prava pridržana.</div>
+      <div class="flex items-center gap-4">
+        <a href="#why" class="hover:text-white">Zašto</a>
+        <a href="#what" class="hover:text-white">Šta</a>
+        <a href="#work" class="hover:text-white">Projekti</a>
+        <a href="#contact" class="hover:text-white">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Helpers
+    const mclose = () => document.getElementById('mnav').classList.add('hidden')
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', mclose))
+    document.getElementById('year').textContent = new Date().getFullYear()
+  </script>
+
+  <!-- JSON-LD Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organizacija",
+    "name": "Lightup Studio",
+    "url": "https://your-domain.com",
+    "logo": "https://picsum.photos/seed/lightup-logo/256/256",
+    "email": "armin.trava@gmail.com",
+    "telephone": "+387644176423",
+    "sameAs": [],
+    "founders": [
+      { "@type": "Person", "name": "Armin Travančić", "jobTitle": "Brand Designer" },
+      { "@type": "Person", "name": "Safet Tokmić", "jobTitle": "Video and Sound Expert" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BA"
+    },
+    "description": "Strategy-first creative studio offering branding, video, photography, print, web and social design."
+  }
+  </script>
+</body>
+</html>
